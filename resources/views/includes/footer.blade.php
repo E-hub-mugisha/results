@@ -1,142 +1,82 @@
-<!--    footer-area start    -->
-<footer class="footer-area">
-    <div class="footer-top">
+<!-- Footer Area -->
+<div class="footer-area">
+    <div class="container ptb-100">
+        <div class="newsletter-area">
+            <div class="section-title text-center">
+                <span>JOIN THE COMMUNITY</span>
+                <h2 class="m-auto">Subscribe Our Newsletter</h2>
+            </div>
+            <form class="newsletter-form" data-toggle="validator" method="POST">
+                <input type="email" class="form-control" placeholder="Enter Your Email Address" name="EMAIL" required autocomplete="off">
+                <button class="subscribe-btn" type="submit">
+                    Subscribe Now <i class="flaticon-paper-plane"></i>
+                </button>
+                <div id="validator-newsletter" class="form-result"></div>
+            </form>
+        </div>
+        <ul class="newsletter-social">
+            <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <i class='flaticon-facebook'></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <i class='flaticon-instagram'></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/" target="_blank">
+                    <i class='flaticon-twitter'></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/" target="_blank">
+                    <i class='flaticon-linkedin'></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="copyright-area">
         <div class="container">
-            <div class="row pt-80 pb-40">
-                <div class="col-md-3">
-                    <div class="footer-widgets footer-about-widget">
-                        <!-- <div class="footer-logo">
-                            <img src="{{ asset('assets/img/logo/logo-rff-footer.png')}}" alt="Logo" />
-
-                        </div> -->
-                        <p>
-                            Unlock your potential and achieve your goals with personalized coaching and training programs
-                        </p>
-                        <div class="social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <sa href="#"><i class="fab fa-google"></i></a>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-5">
+                    <ul class="copyright-list">
+                        <li>
+                            <a href="about.html">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="team.html">
+                                Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="classes.html">
+                                Classes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog-1.html">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-3">
-                    <div class="footer-widgets latest-news">
-                        <h3 class="widget-title-2">Useful Links</h3>
-                        <div class="news-wrap">
-                            <div class="news-content">
-                                <h4>
-                                    <a href="{{ route('home')}}">
-                                        Home
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="news-wrap">
-                            <div class="news-content">
-                                <h4>
-                                    <a href="#about">
-                                        About
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="news-wrap">
-                            <div class="news-content">
-                                <h4>
-                                    <a href="{{ route('posts')}}">
-                                        Blog
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="news-wrap">
-                            <div class="news-content">
-                                <h4>
-                                    <a href="#contact">
-                                        Contact
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="footer-widgets contact-widget">
-                        <h3 class="widget-title-2">Contact Us</h3>
-                        <p>
-                            Let's have talk together
-                        </p>
-                        <ul>
-                            <li>
-                                <i class="fas fa-home"></i>
-                                <span>Kigali city,Rwanda</span>
-                            </li>
-                            <li>
-                                <a href="#&quot;&quot;">
-                                    <i class="fas fa-envelope"></i>
-                                    <span><span class="__cf_email__">nsenthos@gmail.com</span></span>
-                                </a>
-                            </li>
-                            <li>
-
-                                <a href="#">
-                                    <i class="fas fa-phone"></i>
-                                    <span>+250 781 044 118</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="footer-widgets newsletters-widget">
-                        <h3 class="widget-title-2">Newsletters</h3>
-                        <div class="sidebar-widget">
-                            <div class="instagram">
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/gallery/5.jpg')}}" alt="instagram" height="50px" width="50px">
-                                </a>
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/gallery/9.jpg')}}" alt="instagram" height="50px" width="50px">
-                                </a>
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/gallery/10.jpg')}}" alt="instagram" height="50px" width="50px">
-                                </a>
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/gallery/11.jpg')}}" alt="instagram" height="50px" width="50px">
-                                </a>
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/gallery/12.jpg')}}" alt="instagram" height="50px" width="50px">
-                                </a>
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/gallery/13.jpg')}}" alt="instagram" height="50px" width="50px">
-                                </a>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-7">
+                    <div class="copy-right-text">
+                        <p>© <?php echo date("Y"); ?> {{ config('app.name')}} All Rights Reserved | Designed by <a href="https:homiez.rw" target="_blank">Homiez</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="copyright text-xl-left text-lg-left text-center mb-md-10 mb-xs-10">
-                        <p>Copyright <a href="/">Results Focused Fitness</a> ©<?php echo date("Y"); ?>. All Rights Reserved</p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="footer-menu">
-                        <ul>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Terms Of Services</a></li>
-                            <li><a href="#">Accessibility</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--    footer-area end    -->
+</div>
+<!-- Footer Area End -->

@@ -16,7 +16,15 @@ class Homecontroller extends Controller
     {
         $services = Service::all();
         $posts = Post::inRandomOrder()->take(2)->get();
-        return view('home', compact('services','posts'));
+        return view('index', compact('services','posts'));
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
+    public function about()
+    {
+        return view('about');
     }
     public function post()
     {
