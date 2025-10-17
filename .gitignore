@@ -19,3 +19,4 @@ yarn-error.log
 /.vscode
 /storage/app
 storage/app/google-calendar/*.json
+credentials.json
