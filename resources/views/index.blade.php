@@ -12,7 +12,7 @@
                         <span>Real Time For Fitness</span>
                         <h1>Gym is The Best Place With Lots of Space</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p>
-                        <a href="about.html" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
+                        <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
                 <div class="hero-triangle"></div>
@@ -26,19 +26,7 @@
                     <span>Real Time For Fitness</span>
                     <h1>A Reason of Your Health Join Today</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p>
-                    <a href="about.html" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
-                </div>
-            </div>
-            <div class="hero-triangle"></div>
-        </div>
-
-        <div class="hero-slider-item hero-slider-item-bg3">
-            <div class="container-fluid">
-                <div class="hero-content hero-content-max">
-                    <span>Real Time For Fitness</span>
-                    <h1>People sharing Gym Gear and Tools</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p>
-                    <a href="about.html" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
+                    <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                 </div>
             </div>
             <div class="hero-triangle"></div>
@@ -115,10 +103,7 @@
             <div class="col-lg-7">
                 <div class="about-img pr-20" data-tilt data-tilt-axis="x">
                     <div class="img1">
-                        <img src="assets/images/about-img/about-img1.jpg" alt="About" />
-                    </div>
-                    <div class="img2">
-                        <img src="assets/images/about-img/about-img2.jpg" alt="About" />
+                        <img src="assets/images/about-img/6.jpg" alt="About" />
                     </div>
                 </div>
             </div>
@@ -148,7 +133,7 @@
                             <li><i class="flaticon-check"></i> Dynamic group fitness classes suitable for all levels — train together, stay motivated, and have fun!</li>
                         </ul>
                     </div>
-                    <a href="about.html" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
+                    <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                 </div>
             </div>
         </div>
@@ -162,7 +147,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="about-img2 ml-20">
-                    <img src="assets/images/about-img/about-img3.jpg" alt="About" />
+                    <img src="assets/images/about-img/1.jpg" alt="About" />
                 </div>
             </div>
 
@@ -183,7 +168,7 @@
                             <li><i class="flaticon-check"></i> Modern Facilities – Clean, safe, and equipped with everything you need to succeed.</li>
                         </ul>
                     </div>
-                    <a href="about.html" class="default-btn border-radius-5">Join With Us <i class="flaticon-right-arrow"></i></a>
+                    <a href="{{ route('about')}}" class="default-btn border-radius-5">Join With Us <i class="flaticon-right-arrow"></i></a>
                 </div>
             </div>
         </div>
@@ -207,17 +192,17 @@
                             our experienced coaches are here to partner with you on your journey to success.
                         </p>
                     </div>
-                    <a href="about.html" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
+                    <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-7">
-                <div class="about-img pr-20" data-tilt data-tilt-axis="x">
-                    <div class="img1">
-                        <img src="assets/images/about-img/about-img1.jpg" alt="About" />
-                    </div>
-                    <div class="img2">
-                        <img src="assets/images/about-img/about-img2.jpg" alt="About" />
+                <div class="about-img" data-tilt data-tilt-axis="x">
+                    <div class="video-wrap">
+                        <video autoplay loop muted playsinline class="video-element" style="width: 70%;">
+                            <source src="assets/video/video.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>
@@ -234,77 +219,58 @@
             <h2 class="m-auto">We Offer Exclusive Services To Build Health With Professionals</h2>
         </div>
         <div class="row">
+            @foreach( $services as $service)
             <div class="col-lg-4 col-6">
                 <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>Cardio Training</span>
-                    <h3><a href="class-details.html">Boxing For Men & Women</a></h3>
-                    <p>By Raimo V</p>
+                    <span>{{ $service->name }}</span>
+                    <h3><a data-toggle="modal" data-target="#exampleModalCenter">{{ $service->name }}</a></h3>
+                    <p>{{ Str::limit($service->description,60)}}</p>
                     <div class="content">
-                        <h4>$19.99 <del>$24.74</del></h4>
-                        <a href="class-details.html" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
+                        <!-- <h4>$19.99 <del>$24.74</del></h4> -->
+                        <a data-toggle="modal" data-target="#exampleModalCenter" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form action="/book-session" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Book your session</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
-            <div class="col-lg-4 col-6">
-                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>Fitness Training</span>
-                    <h3><a href="class-details.html">Strength Training For Men</a></h3>
-                    <p>By Scarlett </p>
-                    <div class="content">
-                        <h4>$30.99 <del>$36.74</del></h4>
-                        <a href="class-details.html" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
+                            <div class="modal-body row">
+                                <div class="col-md-12 form-group">
+                                    <label for="email" class="text-black">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                </div>
+                                <div class="col-md-12 input-wrap form-group">
+                                    <label for="title" class="text-black">Session Title:</label>
+                                    <input type="text" class="form-control" name="title" id="title" required>
+                                </div>
+                                <div class="col-md-6 input-wrap form-group">
+                                    <label for="start_time" class="text-black">Start Time:</label>
+                                    <input type="datetime-local" class="form-control" name="start_time" id="start_time" required>
+                                </div>
+                                <div class="col-md-6 input-wrap form-group">
+                                    <label for="end_time" class="text-black">End Time:</label>
+                                    <input type="datetime-local" class="form-control" name="end_time" id="end_time" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-6">
-                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>Self Defense</span>
-                    <h3><a href="class-details.html">Cardio Training For Women</a></h3>
-                    <p>By Alex</p>
-                    <div class="content">
-                        <h4>$20.99 <del>$26.74</del></h4>
-                        <a href="class-details.html" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-6">
-                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>Strategic Training</span>
-                    <h3><a href="class-details.html">Cardio & Strategic Self Defense</a></h3>
-                    <p>By Scarlett</p>
-                    <div class="content">
-                        <h4>$27.99 <del>$30.74</del></h4>
-                        <a href="class-details.html" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-6">
-                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>Bodybuilding</span>
-                    <h3><a href="class-details.html">Bodybuilding Training Sessions</a></h3>
-                    <p>By Penelope</p>
-                    <div class="content">
-                        <h4>$28.99 <del>$33.74</del></h4>
-                        <a href="class-details.html" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-6">
-                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>Boxing</span>
-                    <h3><a href="class-details.html">Boxing High Intensity Training</a></h3>
-                    <p>By Eleanor </p>
-                    <div class="content">
-                        <h4>$24.99 <del>$32.74</del></h4>
-                        <a href="class-details.html" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

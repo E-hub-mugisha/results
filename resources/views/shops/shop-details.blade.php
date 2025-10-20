@@ -35,19 +35,19 @@
                         <div class="rating">
                             @for ($i = 0; $i < 5; $i++)
                                 @if($i < floor($product->rating ?? 0))
-                                    <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
                                 @elseif($i < ceil($product->rating ?? 0))
                                     <i class="ri-star-half-fill"></i>
-                                @else
+                                    @else
                                     <i class="ri-star-line"></i>
-                                @endif
-                            @endfor
+                                    @endif
+                                    @endfor
                         </div>
                         <div class="rating-count">({{ $product->reviews_count ?? 0 }} customer review)</div>
                     </div>
                     <div class="price">
                         @if($product->old_price ?? false)
-                            <span class="old-price">${{ $product->old_price }}</span>
+                        <span class="old-price">${{ $product->old_price }}</span>
                         @endif
                         <span class="new-price">${{ $product->price }}</span>
                     </div>
@@ -71,10 +71,9 @@
                             <button type="submit" class="default-btn two border-radius-5">Add To Cart</button>
                         </form>
 
-                        <form action="{{ route('checkout.buy', $product->id) }}" method="POST" class="mt-2">
-                            @csrf
-                            <button type="submit" class="default-btn two border-radius-5">Buy Now</button>
-                        </form>
+                        <a href="{{ route('checkout.index', $product->id) }}" class="default-btn border-radius-5">
+                            Buy Now
+                        </a>
                     </div>
 
                     <div class="product-share">
@@ -136,13 +135,13 @@
                                         <div class="rating">
                                             @for ($i = 0; $i < 5; $i++)
                                                 @if($i < floor($product->rating ?? 0))
-                                                    <i class="ri-star-fill"></i>
+                                                <i class="ri-star-fill"></i>
                                                 @elseif($i < ceil($product->rating ?? 0))
                                                     <i class="ri-star-half-fill"></i>
-                                                @else
+                                                    @else
                                                     <i class="ri-star-line"></i>
-                                                @endif
-                                            @endfor
+                                                    @endif
+                                                    @endfor
                                         </div>
                                         <p>Based on {{ $product->reviews_count ?? 0 }} reviews</p>
                                         <a href="#review-form" class="default-btn btn-right">Write a Review <span></span></a>
@@ -150,25 +149,25 @@
 
                                     <div class="review-comments">
                                         @foreach($product->reviews ?? [] as $review)
-                                            <div class="review-item">
-                                                <div class="content">
-                                                    <img src="{{ asset($review->user->avatar ?? 'assets/images/products/product-user1.jpg') }}" alt="Images">
-                                                    <div class="content-dtls">
-                                                        <h4>{{ $review->user->name ?? 'Anonymous' }}</h4>
-                                                        <span>{{ $review->created_at->format('d M, Y \A\t h:i A') }}</span>
-                                                    </div>
+                                        <div class="review-item">
+                                            <div class="content">
+                                                <img src="{{ asset($review->user->avatar ?? 'assets/images/products/product-user1.jpg') }}" alt="Images">
+                                                <div class="content-dtls">
+                                                    <h4>{{ $review->user->name ?? 'Anonymous' }}</h4>
+                                                    <span>{{ $review->created_at->format('d M, Y \A\t h:i A') }}</span>
                                                 </div>
-                                                <div class="rating">
-                                                    @for ($i = 0; $i < 5; $i++)
-                                                        @if($i < $review->rating)
-                                                            <i class="ri-star-fill"></i>
-                                                        @else
-                                                            <i class="ri-star-line"></i>
-                                                        @endif
-                                                    @endfor
-                                                </div>
-                                                <p>{{ $review->comment }}</p>
                                             </div>
+                                            <div class="rating">
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    @if($i < $review->rating)
+                                                    <i class="ri-star-fill"></i>
+                                                    @else
+                                                    <i class="ri-star-line"></i>
+                                                    @endif
+                                                    @endfor
+                                            </div>
+                                            <p>{{ $review->comment }}</p>
+                                        </div>
                                         @endforeach
                                     </div>
 

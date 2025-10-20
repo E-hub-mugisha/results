@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
@@ -73,5 +74,38 @@ class ShopController extends Controller
         ]);
 
         return back()->with('success', 'Review submitted successfully!');
+    }
+
+    public function buy(Product $product)
+    {
+        return view('checkout', compact('product'));
+    }
+    public function storeOrder(Request $request)
+    {
+        $validated = $request->validate([
+            'names'      => 'required|string|max:255',
+            'phone'           => 'required|string|max:20',
+            'address'         => 'required|string|max:255',
+            'city'            => 'required|string|max:255',
+            'country'         => 'required|string|max:255',
+            'product_id'      => 'required|exists:products,id',
+            'payment_method'  => 'required|string',
+        ]);
+
+        $product = Product::findOrFail($request->product_id);
+        $total = $product->price + 30; // $30 shipping flat rate
+
+        $validated['total'] = $total;
+
+        // Create order
+        $order = Order::create($validated);
+
+        return redirect()->route('order.success', $order->id)
+                         ->with('success', 'Your order has been placed successfully!');
+    }
+    public function success($id)
+    {
+        $order = Order::with('product')->findOrFail($id);
+        return view('order-success', compact('order'));
     }
 }

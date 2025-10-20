@@ -38,8 +38,10 @@ Route::delete('/bookings/{id}', [CoachBookingController::class, 'destroy']);
 Route::get('/shop', [ShopController::class, 'index'])->name('user.shops');
 Route::get('/shop/{id}', [ShopController::class, 'show'])->name('user.shops.detail');
 Route::post('/cart/add/{product}', [ShopController::class, 'add'])->name('cart.add');
-Route::post('/checkout/buy/{product}', [ShopController::class, 'buy'])->name('checkout.buy');
 Route::post('/products/{product}/reviews', [ShopController::class, 'store'])->name('reviews.store');
+Route::get('/checkout/{product}', [ShopController::class, 'buy'])->name('checkout.index');
+Route::post('/checkout/place-order', [ShopController::class, 'storeOrder'])->name('checkout.store');
+Route::get('/order-success/{id}', [ShopController::class, 'success'])->name('order.success');
 
 Route::middleware([
     'auth:sanctum',

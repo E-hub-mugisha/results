@@ -67,12 +67,6 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="optional-item">
-                            <a class="optional-item-cart" href="cart.html">
-                                <i class='flaticon-shopping-cart'></i>
-                                <span>2</span>
-                            </a>
-                        </div>
 
                         <div class="optional-item">
                             <div class="side-menu">

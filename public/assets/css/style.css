@@ -1314,7 +1314,7 @@ Main Banner Area
 .hero-slider-area-two {
   position: relative;
   overflow: hidden;
-  margin-top: -60px;
+  /* margin-top: -60px; */
   z-index: 1;
 }
 .hero-slider-area-two .thumbs-wrap {
@@ -1432,11 +1432,11 @@ Main Banner Area
 }
 
 .hero-slider-item-bg1 {
-  background-image: url(../images/home-three/home-three.jpg);
+  background-image: url(../images/home-three/9.jpg);
 }
 
 .hero-slider-item-bg2 {
-  background-image: url(../images/home-three/home-three2.jpg);
+  background-image: url(../images/home-three/10.jpg);
 }
 
 .hero-slider-item-bg3 {
@@ -1826,7 +1826,7 @@ About Area
   position: relative;
   margin-right: 15px;
 }
-.about-img .img1::before {
+/* .about-img .img1::before {
   content: "";
   position: absolute;
   top: -70px;
@@ -1847,7 +1847,7 @@ About Area
   width: 100%;
   height: 120px;
   background-color: var(--whiteColor);
-}
+} */
 .about-img .img2 {
   position: relative;
   margin-left: 15px;
