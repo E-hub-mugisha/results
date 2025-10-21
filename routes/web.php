@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CoachBookingController;
@@ -23,12 +24,16 @@ use App\Http\Controllers\ShopController;
 
 Route::get('/', [Homecontroller::class, 'index'])->name('home');
 Route::get('/about', [Homecontroller::class, 'about'])->name('about');
-Route::get('/blogs', [Homecontroller::class, 'post'])->name('posts');
+Route::get('/posts', [Homecontroller::class, 'post'])->name('posts');
 Route::get('/contact', [Homecontroller::class, 'contact'])->name('user.contact');
-Route::get('/blog/{title}', [Homecontroller::class, 'postDetail'])->name('post.details');
+Route::get('/post/{title}', [Homecontroller::class, 'postDetail'])->name('post.details');
 Route::post('/contact-submit', [Homecontroller::class, 'submit'])->name('contact.submit');
-
+Route::post('/send-appointment', [Homecontroller::class, 'send'])->name('appointment.send');
+Route::post('/book-Training-session', [Homecontroller::class, 'sendSession'])->name('session.book');
 Route::post('/book-session', [CoachBookingController::class, 'createBooking']);
+
+Route::get('/blogs', [Homecontroller::class, 'blogs'])->name('home.blogs');
+Route::get('/blogs/{slug}', [Homecontroller::class, 'showBlog'])->name('home.blog-show');
 
 Route::get('/bookings', [CoachBookingController::class, 'index']);
 Route::post('/bookings', [CoachBookingController::class, 'store']);
@@ -60,4 +65,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin/testimonials', TestimonialController::class);
     Route::resource('/admin/posts', PostController::class);
     Route::resource('products', ProductController::class);
+
+    // Admin routes (optional)
+    Route::get('/admin/blogs/create', [BlogController::class, 'create'])->name('blogs.create');
+    Route::post('/admin/blogs', [BlogController::class, 'store'])->name('blogs.store');
 });

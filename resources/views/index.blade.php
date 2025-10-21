@@ -56,30 +56,31 @@
 <!-- Appointment Area -->
 <div class="appointment-area ptb-100">
     <div class="container">
-        <form class="appointment-form">
+        <form action="{{ route('appointment.send') }}" method="POST" class="appointment-form">
+            @csrf
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" class="form-control" required data-error="Please Enter Your Name" placeholder="Enter Full Name">
+                        <input type="text" name="name" class="form-control" required placeholder="Enter Full Name">
                     </div>
                 </div>
 
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label>Email Address</label>
-                        <input type="text" class="form-control" required data-error="Please Enter Your Name" placeholder="Enter Email Address">
+                        <input type="email" name="email" class="form-control" required placeholder="Enter Email Address">
                     </div>
                 </div>
 
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label>Course</label>
-                        <select class="form-select form-control">
-                            <option selected>Select Course</option>
-                            <option value="1">Cardio Training</option>
-                            <option value="2">Fitness Training</option>
-                            <option value="3">Boxing Training</option>
+                        <select name="course" class="form-select form-control" required>
+                            <option selected disabled>Select Course</option>
+                            @foreach($services as $service)
+                            <option value="{{ $service->name }}">{{ $service->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -92,9 +93,9 @@
             </div>
         </form>
     </div>
-
 </div>
 <!-- Appointment Area End -->
+
 
 <!-- About Area -->
 <div class="about-area pt-100 pb-70">
@@ -215,58 +216,25 @@
 <div class="classes-area classes-area-bg3 pt-100 pb-70">
     <div class="container">
         <div class="section-title text-center mb-45">
-            <span>CLASSES WE PROVIDE</span>
-            <h2 class="m-auto">We Offer Exclusive Services To Build Health With Professionals</h2>
+            <span>Our Classes</span>
+            <h2 class="m-auto">Exclusive Services to Help You Build a Healthier Life</h2>
         </div>
-        <div class="row">
-            @foreach( $services as $service)
-            <div class="col-lg-4 col-6">
-                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
-                    <span>{{ $service->name }}</span>
-                    <h3><a data-toggle="modal" data-target="#exampleModalCenter">{{ $service->name }}</a></h3>
-                    <p>{{ Str::limit($service->description,60)}}</p>
-                    <div class="content">
-                        <!-- <h4>$19.99 <del>$24.74</del></h4> -->
-                        <a data-toggle="modal" data-target="#exampleModalCenter" class="classes-btn">Join Today <i class="flaticon-right-arrow"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <form action="/book-session" method="POST">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Book your session</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
 
-                            <div class="modal-body row">
-                                <div class="col-md-12 form-group">
-                                    <label for="email" class="text-black">Email address</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
-                                </div>
-                                <div class="col-md-12 input-wrap form-group">
-                                    <label for="title" class="text-black">Session Title:</label>
-                                    <input type="text" class="form-control" name="title" id="title" required>
-                                </div>
-                                <div class="col-md-6 input-wrap form-group">
-                                    <label for="start_time" class="text-black">Start Time:</label>
-                                    <input type="datetime-local" class="form-control" name="start_time" id="start_time" required>
-                                </div>
-                                <div class="col-md-6 input-wrap form-group">
-                                    <label for="end_time" class="text-black">End Time:</label>
-                                    <input type="datetime-local" class="form-control" name="end_time" id="end_time" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Book Now</button>
-                                </div>
-                            </div>
-                        </form>
+        <div class="row">
+            @foreach($services as $service)
+            <div class="col-lg-4 col-md-6 col-12 mb-4">
+                <div class="classes-card-two" data-tilt data-tilt-full-page-listening>
+                    <span class="service-tag">{{ $service->name }}</span>
+                    <h3 class="text-white">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#serviceModal-{{ $service->id }}">
+                            {{ $service->name }}
+                        </a>
+                    </h3>
+                    <p>{{ Str::limit($service->description, 80) }}</p>
+                    <div class="content">
+                        <a href="#" class="classes-btn" data-bs-toggle="modal" data-bs-target="#serviceModal-{{ $service->id }}">
+                            Join Today <i class="flaticon-right-arrow"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -275,6 +243,55 @@
     </div>
 </div>
 <!-- Classes Area End -->
+
+<!-- Service Booking Modals -->
+@foreach($services as $service)
+<div class="modal fade" id="serviceModal-{{ $service->id }}" tabindex="-1" aria-labelledby="serviceModalLabel-{{ $service->id }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="{{ url('/book-Training-session') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalLabel-{{ $service->id }}">
+                        Book Your Session: {{ $service->name }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body row g-3">
+                    <div class="col-12">
+                        <label for="email-{{ $service->id }}" class="form-label text-black">Email Address</label>
+                        <input type="email" name="email" id="email-{{ $service->id }}" class="form-control" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="title-{{ $service->id }}" class="form-label text-black">Session Title</label>
+                        <input type="text" name="title" id="title-{{ $service->id }}" value="{{ $service->name }}" class="form-control" placeholder="Enter session title" required readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="start_time-{{ $service->id }}" class="form-label text-black">Start Time</label>
+                        <input type="datetime-local" name="start_time" id="start_time-{{ $service->id }}" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="end_time-{{ $service->id }}" class="form-label text-black">End Time</label>
+                        <input type="datetime-local" name="end_time" id="end_time-{{ $service->id }}" class="form-control" required>
+                    </div>
+
+                    <input type="hidden" name="service_id" value="{{ $service->id }}">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Book Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
+
 
 <section class="about-area pt-100 pb-70">
     <div class="container">

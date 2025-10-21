@@ -47,7 +47,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('posts')}}" class="nav-link">
+                            <a href="{{ route('home.blogs')}}" class="nav-link">
                                 BLOG
                             </a>
                         </li>
