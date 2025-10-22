@@ -5,7 +5,7 @@
             <div class="mobile-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('home')}}">
-                        <img src="assets/images/logos/small-white-logo.png" alt="logo">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo" style="height: 80px;">
                     </a>
                 </div>
             </div>
@@ -17,7 +17,8 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light ">
                 <a class="navbar-brand" href="{{ route('home')}}">
-                    <img src="assets/images/logos/logo.png" alt="Logo">
+                    <img src="assets/images/logo-red.png" alt="Logo" style="height: 80px;">
+                    <!-- <span class="text-white"> {{ config('app.name')}}</span> -->
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -31,12 +32,6 @@
                         <li class="nav-item">
                             <a href="{{ route('about')}}" class="nav-link">
                                 ABOUT US
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#programs" class="nav-link">
-                                PROGRAMS
                             </a>
                         </li>
 

@@ -1465,8 +1465,9 @@ Main Banner Area
 }
 
 .banner-bottom {
-  padding: 45px 35px 42px;
-  border: 1px solid rgb(238, 238, 238);
+  padding: 20px;
+  /* border: 1px solid rgb(238, 238, 238); */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
   transition: var(--transition);
   border-radius: 10px;
   position: relative;
@@ -1599,47 +1600,47 @@ Inner Banner Area
 }
 
 .inner-bg1 {
-  background-image: url("../images/inner-banner/inner-banner1.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg2 {
-  background-image: url("../images/inner-banner/inner-banner2.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg3 {
-  background-image: url("../images/inner-banner/inner-banner3.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg4 {
-  background-image: url("../images/inner-banner/inner-banner4.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg5 {
-  background-image: url("../images/inner-banner/inner-banner5.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg6 {
-  background-image: url("../images/inner-banner/inner-banner6.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg7 {
-  background-image: url("../images/inner-banner/inner-banner7.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg8 {
-  background-image: url("../images/inner-banner/inner-banner8.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg9 {
-  background-image: url("../images/inner-banner/inner-banner9.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg10 {
-  background-image: url("../images/inner-banner/inner-banner10.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 .inner-bg11 {
-  background-image: url("../images/inner-banner/inner-banner11.jpg");
+  background-image: url("../images/9.jpg");
 }
 
 /*================================
@@ -3207,7 +3208,7 @@ Training Area
 }
 
 .training-content {
-  background-image: url(../images/training.jpg);
+  background-image: url(../images/9.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

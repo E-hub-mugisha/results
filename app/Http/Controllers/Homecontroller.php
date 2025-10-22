@@ -28,7 +28,9 @@ class Homecontroller extends Controller
     }
     public function about()
     {
-        return view('about');
+        $services = Service::all();
+        $blogs = Blog::latest()->paginate(6);
+        return view('about', compact('services', 'blogs'));
     }
     public function post()
     {

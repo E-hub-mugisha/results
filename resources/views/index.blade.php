@@ -43,10 +43,6 @@
             <div class="owl-thumb-item">
                 <span>02</span>
             </div>
-
-            <div class="owl-thumb-item">
-                <span>03</span>
-            </div>
         </div>
     </div>
     <!-- End Carousel Thumbs -->
@@ -363,64 +359,32 @@
             <span>OUR BLOG</span>
             <h2 class="m-auto">Check Our Latest News & Articles</h2>
         </div>
+
         <div class="blog-slider owl-carousel owl-theme">
+            @foreach($blogs as $blog)
             <div class="blog-item">
-                <a href="blog-details.html">
-                    <img src="assets/images/blog/blog-img1.jpg" alt="Blog" />
+                <a href="{{ route('home.blog-show', $blog->slug) }}">
+                    <img src="{{ asset('images/blog/' . $blog->image) }}" alt="{{ $blog->title }}" />
                 </a>
                 <div class="content">
                     <ul>
-                        <li><i class="flaticon-user"></i> <a href="author.html">By Alicia </a></li>
-                        <li><i class="flaticon-time"></i> Dec 12, 2024</li>
+                        <li><i class="flaticon-user"></i> <a href="#">{{ $blog->author ?? 'Admin' }}</a></li>
+                        <li><i class="flaticon-time"></i> {{ $blog->created_at->format('M d, Y') }}</li>
                     </ul>
-                    <h3><a href="blog-details.html">There Are Many Variations Of Passages Orem </a></h3>
-                    <a href="blog-details.html" class="default-btn border-radius-5">Read More <i class="flaticon-right-arrow"></i></a>
+                    <h3>
+                        <a href="{{ route('home.blog-show', $blog->slug) }}">
+                            {{ Str::limit($blog->title, 60) }}
+                        </a>
+                    </h3>
+                    <a href="{{ route('home.blog-show', $blog->slug) }}" class="default-btn border-radius-5">
+                        Read More <i class="flaticon-right-arrow"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="blog-item">
-                <a href="blog-details.html">
-                    <img src="assets/images/blog/blog-img2.jpg" alt="Blog" />
-                </a>
-                <div class="content">
-                    <ul>
-                        <li><i class="flaticon-user"></i> <a href="author.html">By Natalie</a></li>
-                        <li><i class="flaticon-time"></i> Dec 19, 2024</li>
-                    </ul>
-                    <h3><a href="blog-details.html">The 10 Best Exercises to Do in Your Park</a></h3>
-                    <a href="blog-details.html" class="default-btn border-radius-5">Read More <i class="flaticon-right-arrow"></i></a>
-                </div>
-            </div>
-
-            <div class="blog-item">
-                <a href="blog-details.html">
-                    <img src="assets/images/blog/blog-img3.jpg" alt="Blog" />
-                </a>
-                <div class="content">
-                    <ul>
-                        <li><i class="flaticon-user"></i> <a href="author.html">By Brooklyn</a></li>
-                        <li><i class="flaticon-time"></i> Dec 21, 2024</li>
-                    </ul>
-                    <h3><a href="blog-details.html">The Interesting Mental Health Benefits of Exercise</a></h3>
-                    <a href="blog-details.html" class="default-btn border-radius-5">Read More <i class="flaticon-right-arrow"></i></a>
-                </div>
-            </div>
-
-            <div class="blog-item">
-                <a href="blog-details.html">
-                    <img src="assets/images/blog/blog-img4.jpg" alt="Blog" />
-                </a>
-                <div class="content">
-                    <ul>
-                        <li><i class="flaticon-user"></i> <a href="author.html">By Eliana </a></li>
-                        <li><i class="flaticon-time"></i> Dec 27, 2024</li>
-                    </ul>
-                    <h3><a href="blog-details.html">10 Tips How to Prepare Meals Fast and Easy</a></h3>
-                    <a href="blog-details.html" class="default-btn border-radius-5">Read More <i class="flaticon-right-arrow"></i></a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
 <!-- Blog Area End -->
+
 @endsection

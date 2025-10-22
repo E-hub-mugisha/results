@@ -24,7 +24,7 @@
         <div class="modal-content">
             <div class="modal-header justify-content-between">
                 <div class="sidebar-logo">
-                    <img src="assets/images/logos/logo-2.png" alt="Image">
+                    <img src="{{ asset('assets/images/logo-black.png') }}" alt="Image" style="height: 80px;">
                 </div>
 
                 <button type="button" class="close" data-bs-dismiss="modal">
@@ -35,8 +35,7 @@
                 <div class="sidebar-about">
                     <h3>About Us</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut tur incidunt ut labore et
+                        At Results Focused Fitness, we believe that training is more than just physical exercise — it’s a lifestyle that strengthens your mind, body, and spirit.
                     </p>
                 </div>
                 <div class="contact-us">
@@ -46,7 +45,7 @@
                             <i class="ri-phone-line"></i>
                             <div class="content">
                                 <h4>Office Address</h4>
-                                <p>4252 Stanton Hollow Road,New York USA</p>
+                                <p>Kigali city, Rwanda</p>
                             </div>
                         </li>
 
@@ -54,14 +53,14 @@
                             <i class="ri-message-2-line"></i>
                             <div class="content">
                                 <h4>Call Us</h4>
-                                <p><a href="tel:+1(044)123456789">+1 (044) 123 456 789</a></p>
+                                <p><a href="tel:+250781044118">+250 781 044 118</a></p>
                             </div>
                         </li>
                         <li>
                             <i class="ri-map-pin-line"></i>
                             <div class="content">
                                 <h4>Email Us</h4>
-                                <p><a href="https://templates.hibotheme.com/cdn-cgi/l/email-protection#3e575058517e5951525f50105d5153"><span class="__cf_email__" data-cfemail="bcd5d2dad3fcdbd3d0ddd292dfd3d1">[email&#160;protected]</span></a></p>
+                                <p><a href="mailto:nsenthos@gmail.com"><span>nsenthos@gmail.com</span></a></p>
                             </div>
                         </li>
                         <li>
@@ -100,18 +99,6 @@
                     </ul>
                 </div>
 
-                <div class="sidebar-newsletter">
-                    <h3>Newsletter</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices </p>
-                    <div class="sidebar-newsletter-area">
-                        <form class="sidebar-newsletter-form" data-toggle="validator" method="POST">
-                            <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL" required autocomplete="off">
-                            <button class="subscribe-btn" type="submit">
-                                <i class="flaticon-paper-plane"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

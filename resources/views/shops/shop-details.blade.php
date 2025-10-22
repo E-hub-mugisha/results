@@ -49,7 +49,7 @@
                         @if($product->old_price ?? false)
                         <span class="old-price">${{ $product->old_price }}</span>
                         @endif
-                        <span class="new-price">${{ $product->price }}</span>
+                        <span class="new-price">${{ $product->new_price }}</span>
                     </div>
                     <p>{{ $product->description }}</p>
                     <ul class="product-category-list">
@@ -59,17 +59,17 @@
                         <li><span>Status:</span> {{ $product->status }}</li>
                     </ul>
 
-                    <div class="input-counter">
+                    <!-- <div class="input-counter">
                         <span class="minus-btn"><i class="ri-subtract-line"></i></span>
                         <input type="text" value="1">
                         <span class="plus-btn"><i class="ri-add-line"></i></span>
-                    </div>
+                    </div> -->
 
                     <div class="product-add-btn">
-                        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                        <!-- <form action="{{ route('cart.add', $product->id) }}" method="POST">
                             @csrf
                             <button type="submit" class="default-btn two border-radius-5">Add To Cart</button>
-                        </form>
+                        </form> -->
 
                         <a href="{{ route('checkout.index', $product->id) }}" class="default-btn border-radius-5">
                             Buy Now
