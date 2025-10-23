@@ -1,5 +1,5 @@
 @extends('layouts.guest')
-@section('title', 'Home')
+@section('title', 'HOME')
 @section('content')
 
 <!-- Hero Slider Area -->
@@ -11,7 +11,7 @@
                     <div class="hero-content hero-content-max">
                         <span>Real Time For Fitness</span>
                         <h1>Gym is The Best Place With Lots of Space</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p>
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p> -->
                         <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="hero-content hero-content-max">
                     <span>Real Time For Fitness</span>
                     <h1>A Reason of Your Health Join Today</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut elit tellus luctus nec ullamcorper mattis pulvinar dapibus leo consectetur adipiscing elit ut elit </p> -->
                     <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                 </div>
             </div>
@@ -121,15 +121,6 @@
                             Whether your goal is weight management, recovery, personal growth, or overall wellness — we’re here to guide you every step of the way.
                         </p>
                     </div>
-                    <div class="about-list">
-                        <ul>
-                            <li><i class="flaticon-check"></i> One-on-one personalized sessions designed around your fitness level, goals, and schedule.</li>
-                            <li><i class="flaticon-check"></i> A recovery and wellness platform that helps you heal, rebuild strength, and maintain balance.</li>
-                            <li><i class="flaticon-check"></i> Accelerate recovery, reduce soreness, and enhance circulation with our guided ice bath therapy.</li>
-                            <li><i class="flaticon-check"></i> A fun, disciplined martial arts program that builds focus, confidence, and self-defense skills.</li>
-                            <li><i class="flaticon-check"></i> Dynamic group fitness classes suitable for all levels — train together, stay motivated, and have fun!</li>
-                        </ul>
-                    </div>
                     <a href="{{ route('about')}}" class="default-btn border-radius-5">Learn More <i class="flaticon-right-arrow"></i></a>
                 </div>
             </div>
@@ -195,8 +186,27 @@
 
             <div class="col-lg-7">
                 <div class="about-img" data-tilt data-tilt-axis="x">
-                    <div class="video-wrap">
-                        <video autoplay loop muted playsinline class="video-element" style="width: 70%;">
+                    <style>
+                        .video-wrap {
+
+                            padding-top: 56.25%;
+                            /* Maintain 16:9 aspect ratio */
+                        }
+
+                        .video-wrap .video-element {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            /* Ensures the video scales to cover the container */
+                            background-color: black;
+                            /* Optional: fallback background */
+                        }
+                    </style>
+                    <div class="video-wrap mb--130">
+                        <video autoplay loop muted playsinline class="video-element">
                             <source src="assets/video/video.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -364,7 +374,7 @@
             @foreach($blogs as $blog)
             <div class="blog-item">
                 <a href="{{ route('home.blog-show', $blog->slug) }}">
-                    <img src="{{ asset('images/blog/' . $blog->image) }}" alt="{{ $blog->title }}" />
+                    <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" />
                 </a>
                 <div class="content">
                     <ul>

@@ -1,106 +1,47 @@
+
 <!-- Start Navbar Area -->
-<div class="navbar-area">
-    <div class="mobile-responsive-nav">
-        <div class="container">
-            <div class="mobile-responsive-menu">
-                <div class="logo">
-                    <a href="{{ route('home')}}">
-                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo" style="height: 80px;">
-                    </a>
-                </div>
-            </div>
+<div class="new-nav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="{{ route('home') }}">
+        <img src="{{ asset('assets/images/logo-black.png') }}" alt="Logo" height="50">
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link active">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('about') }}" class="nav-link">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('user.shops') }}" class="nav-link">SHOP</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('home.blogs') }}" class="nav-link">BLOG</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('user.contact') }}" class="nav-link">CONTACT US</a>
+          </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <div class="d-flex">
+          <a href="{{ route('register') }}" class="default-btn border-radius-5">
+            Get Started
+          </a>
         </div>
+      </div>
     </div>
-
-    <!-- Menu For Desktop Device -->
-    <div class="desktop-nav nav-area">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" href="{{ route('home')}}">
-                    <img src="assets/images/logo-red.png" alt="Logo" style="height: 80px;">
-                    <!-- <span class="text-white"> {{ config('app.name')}}</span> -->
-                </a>
-
-                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('home')}}" class="nav-link active">
-                                HOME
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('about')}}" class="nav-link">
-                                ABOUT US
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('user.shops')}}" class="nav-link">
-                                SHOP
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('home.blogs')}}" class="nav-link">
-                                BLOG
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('user.contact') }}" class="nav-link">
-                                CONTACT US
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div class="others-options d-flex align-items-center">
-                        <div class="optional-item">
-                            <div class="search-btn">
-                                <a class="#" href="#searchmodal" data-bs-toggle="modal" data-bs-target="#searchmodal">
-                                    <i class='flaticon-loupe'></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="optional-item">
-                            <div class="side-menu">
-                                <a class="#" href="#sidebarmodal" data-bs-toggle="modal" data-bs-target="#sidebarmodal">
-                                    <i class="ri-menu-line"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mobile-nav">
-                        <div class="mobile-other d-flex align-items-center">
-                            <div class="optional-item">
-                                <div class="search-btn">
-                                    <a class="#" href="#searchmodal" data-bs-toggle="modal" data-bs-target="#searchmodal">
-                                        <i class='flaticon-loupe'></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="optional-item">
-                                <a class="optional-item-cart color-ffffff" href="cart.html">
-                                    <i class='flaticon-shopping-cart'></i>
-                                    <span>2</span>
-                                </a>
-                            </div>
-
-                            <div class="optional-item">
-                                <div class="side-menu">
-                                    <a class="#" href="#sidebarmodal" data-bs-toggle="modal" data-bs-target="#sidebarmodal">
-                                        <i class="ri-menu-line"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+  </nav>
 </div>
 <!-- End Navbar Area -->

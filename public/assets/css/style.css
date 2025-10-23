@@ -328,8 +328,64 @@ img {
 /*================================
 Navbar Area
 ===================================*/
+.new-nav {
+  background-color: #ffffff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.new-nav .navbar {
+  padding-right: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+.new-nav .navbar ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.new-nav .navbar .navbar-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+.new-nav .navbar .navbar-nav .nav-item {
+  position: relative;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-right: 0;
+  padding-left: 0;
+}
+.new-nav .navbar .navbar-nav .nav-item .dropdown-toggle {
+  padding-right: 17px;
+}
+.new-nav .navbar .navbar-nav .nav-item .dropdown-toggle::before {
+  position: absolute;
+  content: "\ea4e";
+  line-height: 1;
+  right: -2px;
+  top: 6px;
+  font-family: "remixicon" !important;
+  font-size: 17px;
+}
+.new-nav .navbar .navbar-nav .nav-item .dropdown-toggle::after {
+  display: none;
+}
+.new-nav .navbar .navbar-nav .nav-item a {
+  font-size: var(--fontSize);
+  color: #000000;
+  position: relative;
+  z-index: 1;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: 800;
+}
+/* =================================== */
 .desktop-nav {
-  background-color: #191918;
+  background-color: #ffffff;
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -372,7 +428,7 @@ Navbar Area
 }
 .desktop-nav .navbar .navbar-nav .nav-item a {
   font-size: var(--fontSize);
-  color: var(--whiteColor);
+  color: #000000;
   position: relative;
   z-index: 1;
   padding-left: 0;
@@ -381,6 +437,7 @@ Navbar Area
   padding-bottom: 0;
   margin-left: 20px;
   margin-right: 20px;
+  font-weight: 800;
 }
 .desktop-nav .navbar .navbar-nav .nav-item a:hover, .desktop-nav .navbar .navbar-nav .nav-item a:focus, .desktop-nav .navbar .navbar-nav .nav-item a.active {
   color: var(--redColor);
@@ -1316,6 +1373,7 @@ Main Banner Area
   overflow: hidden;
   /* margin-top: -60px; */
   z-index: 1;
+  /* height: 100vh; */
 }
 .hero-slider-area-two .thumbs-wrap {
   position: absolute;

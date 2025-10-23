@@ -27,7 +27,7 @@
 
                     @if($blog->image)
                         <div class="blog-preview-img">
-                            <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}">
+                            <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}">
                         </div>
                     @endif
 
@@ -49,7 +49,7 @@
                             @foreach($recentBlogs as $recent)
                                 <article class="item">
                                     <a href="{{ route('home.blog-show', $recent->slug) }}" class="thumb">
-                                        <span class="full-image cover" style="background-image:url('{{ asset('storage/' . $recent->image) }}')"></span>
+                                        <span class="full-image cover" style="background-image:url('{{ asset($recent->image) }}')"></span>
                                     </a>
                                     <div class="info">
                                         <p>{{ $recent->created_at->format('M d, Y') }}</p>

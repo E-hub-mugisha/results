@@ -29,7 +29,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="blog-item">
                         <a href="{{ route('home.blog-show', $blog->slug) }}">
-                            <img src="{{ asset('storage/blogs/' . $blog->image) }}" alt="{{ $blog->title }}" class="img-fluid rounded">
+                            <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" class="img-fluid rounded">
                         </a>
                         <div class="content">
                             <ul>

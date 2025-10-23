@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
     <!-- Title -->
-    <title>@yield('title') - {{ config('app.name')}}</title>
+    <title>@yield('title') | {{ config('app.name')}}</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
@@ -25,30 +25,26 @@
 
 <body>
 
-    <body>
+    @include('includes.header')
 
-        @include('includes.header')
+    @yield('content')
 
-        @include('includes.sidebar')
-        
-        @yield('content')
+    @include('includes.footer')
 
-        @include('includes.footer')
+    <!-- Jquery Min JS -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <!-- Plugins JS -->
+    <script src="{{ asset('assets/js/plugins.js') }}"></script>
+    <!-- Custom  JS -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 
-        <!-- Jquery Min JS -->
-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-        <!-- Plugins JS -->
-        <script src="{{ asset('assets/js/plugins.js') }}"></script>
-        <!-- Custom  JS -->
-        <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if(Session::has('message'))
+        toastr.success("{{ Session::get('message') }}");
+        @endif
+    </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <script>
-            @if(Session::has('message'))
-            toastr.success("{{ Session::get('message') }}");
-            @endif
-        </script>
-
-    </body>
+</body>
 
 </html>
