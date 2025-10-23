@@ -5,7 +5,7 @@
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand" href="{{ route('home') }}">
-        <img src="{{ asset('assets/images/logo-black.png') }}" alt="Logo" height="50">
+        <img src="{{ asset('assets/images/logo-black.jpg') }}" alt="Logo" height="90">
       </a>
 
       <!-- Mobile Toggle -->

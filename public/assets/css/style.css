@@ -30,7 +30,7 @@ Default CSS
 :root {
   --headerFonts: "Teko", sans-serif;
   --bodyFonts: "Roboto", sans-serif;
-  --redColor: #DA1D25;
+  --redColor: #92441A;
   --titleColor: #000000;
   --bodyColor: #555555;
   --whiteColor: #ffffff;
@@ -1486,7 +1486,7 @@ Main Banner Area
   width: 0;
   height: 0;
   border-top: 240.5px solid transparent;
-  border-right: 350.5px solid #DA1D25;
+  border-right: 350.5px solid #92441A;
 }
 
 .hero-slider-item-bg1 {
